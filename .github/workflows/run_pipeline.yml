@@ -1,0 +1,31 @@
+name: Data Analytics Automation Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  run-scripts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run cleaning script
+        run: |
+          python clean.py data/outreach.csv output/cleaned.csv
+
+      - name: Run KPI script
+        run: |
+          python kpi.py output/cleaned.csv
