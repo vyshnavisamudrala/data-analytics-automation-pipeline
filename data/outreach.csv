@@ -1,0 +1,5 @@
+id,email,stage,date
+1,a@x.com,contacted,2025-01-01
+2,b@x.com,applied,2025-01-02
+2,b@x.com,applied,2025-01-02
+3,c@x.com,contacted,2025-01-05
